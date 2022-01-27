@@ -1,12 +1,13 @@
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
-      ],
+      declarations: [AppComponent],
+      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
   });
 
@@ -22,10 +23,16 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('hackernews-ng');
   });
 
-  it('should render title', () => {
+  it('should render header', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('hackernews-ng app is running!');
+    const compiled = fixture.debugElement;
+    expect(compiled.query(By.css('app-header'))).toBeTruthy();
+  });
+  it('should render stories component', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement;
+    expect(compiled.query(By.css('app-stories'))).toBeTruthy();
   });
 });
