@@ -1,0 +1,27 @@
+<main class="stories container">
+  <div class="stories-grid" *ngIf="stories$ | async as stories; else loading">
+    <div class="stories-card" *ngFor="let story of stories">
+      <div class="stories-card__image">
+        <img src="{{ story.featuredImage }}" />
+      </div>
+      <div class="stories-card-content">
+        <h3 class="title">
+          {{ story.title }}
+        </h3>
+        <div class="story-data">
+          Id: {{ story.id }} | Score: {{ story.score }} | {{ story.time * 1000 | date }}
+        </div>
+        <span class="author-data"
+          >Posted by: {{ story.by }} (karma {{ story.authorDetails?.karma }})</span
+        >
+        <div class="cta">
+          <a href="{{ story.url }}" target="blank">Read full story</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #loading>
+    <app-loader class="stories-loader"></app-loader>
+  </ng-template>
+</main>
