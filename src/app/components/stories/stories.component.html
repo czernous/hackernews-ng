@@ -8,9 +8,7 @@
         <h3 class="title">
           {{ story.title }}
         </h3>
-        <div class="story-data">
-          Id: {{ story.id }} | Score: {{ story.score }} | {{ story.time * 1000 | date }}
-        </div>
+        <div class="story-data">Score: {{ story.score }} | {{ story.time * 1000 | date }}</div>
         <span class="author-data"
           >Posted by: {{ story.by }} (karma {{ story.authorDetails?.karma }})</span
         >

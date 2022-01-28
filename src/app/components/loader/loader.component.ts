@@ -6,8 +6,8 @@ import { Component } from '@angular/core';
   styles: [
     `
       .loader {
-        border: 12px solid #1c0e10;
-        border-top: 12px solid #0cbcf2;
+        border: 12px solid #555;
+        border-top: 12px solid #d3307c;
         border-radius: 50%;
         width: 100px;
         height: 100px;
