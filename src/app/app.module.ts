@@ -9,7 +9,7 @@ import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [AppComponent, StoriesComponent, LoaderComponent, HeaderComponent],
-  imports: [BrowserModule, HttpClientModule],
+  imports: [BrowserModule.withServerTransition({ appId: 'serverApp' }), HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
